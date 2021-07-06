@@ -5,10 +5,11 @@ import trie
 import stack
 import graph
 import hotdog
+run_all_tests = False
 
 # Stack (Filo, first in, last out):
 test_stack = False
-if(test_stack):
+if(test_stack or run_all_tests):
     st = stack.stack()
     assert st.size == 0
     st.push("hey hey")
@@ -18,21 +19,27 @@ if(test_stack):
     assert st.size == 0
 
 test_linked_list = False
-if(test_linked_list):
+if(test_linked_list or run_all_tests):
     lin_list = linked_list.linked_list()
     lin_list.insertion("Hello")
     lin_list.insertion("There")
-    lin_list.element_wise_print()
+    #lin_list.element_wise_print()
     lin_list.remove_first()
-    lin_list.element_wise_print()
+    #lin_list.element_wise_print()
+    lin_list.remove_first()
+
 
     lin_list.insertion("Hey")
     lin_list.insertion("baby")
     lin_list.insertion("girl")
+    lin_list.element_wise_print()
+    print(lin_list.size)
     assert lin_list.size == 3
 
+
+
 test_queue = False
-if(test_queue):
+if(test_queue or run_all_tests):
     q = queue.queue()
     q.push("General")
     q.push("Kenobi")
@@ -47,8 +54,8 @@ if(test_queue):
     assert "hey" == q.pop()
     assert q.size == 0
 
-test_graph = True
-if(test_graph):
+test_graph = False
+if(test_graph or run_all_tests):
     # Testing the following graph g2, with startnode C3.
     #      1 2  3  4  5
     #    | - -  -  -  -
@@ -82,7 +89,7 @@ if(test_graph):
     assert g2.isTree(C3)
 
 test_bin_tree = False
-if (test_bin_tree):
+if (test_bin_tree or run_all_tests):
     bin_tree = bin_tree_maker.binary_tree(5)
     bin_tree2 = bin_tree_maker.binary_tree(1)
     bin_tree.insert(3)
@@ -96,7 +103,7 @@ if (test_bin_tree):
     assert bin_tree2.depth() == 1
 
 test_trie = False
-if(test_trie):
+if(test_trie or run_all_tests):
     t = trie.trie_node()
     t.insert_word("hi")
     t.insert_word("hit")
@@ -114,7 +121,7 @@ if(test_trie):
         assert contact_list.does_word_exist(a)
 
 test_hotdog = False
-if(test_hotdog):
+if(test_hotdog or run_all_tests):
     hottie = hotdog.hotdog()
     hottie.insert(1)
     hottie.insert(2)
