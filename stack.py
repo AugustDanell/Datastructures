@@ -10,6 +10,12 @@ class stack:
         self.Internal_List = []
         self.size = 0
 
+    def peek(self):
+        return self.Internal_List[self.size-1]
+
+    def is_empty(self):
+        return self.size == 0
+
     def pop(self):
         element = self.Internal_List.pop(self.size-1)
         self.size -= 1
