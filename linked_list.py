@@ -1,9 +1,9 @@
 # Linked List
 # A linked list is a datastructure where each node holds a value and a reference to the next node. It is like a chain
 # where one can find a value through another node, traversing the chain until a value is found. The linked list is slow
-# when we either want to remove/find/add an element in the middle O(N), or if we want to remove the very last element. 
-# Remember, we cannot traverse backwards and to remove an element is like 'unhooking' its links, and so we must have the 
-# element before whatever element we want to remove. As such removing the last element is always of time complexity N. 
+# when we either want to remove/find/add an element in the middle O(N), or if we want to remove the very last element.
+# Remember, we cannot traverse backwards and to remove an element is like 'unhooking' its links, and so we must have the
+# element before whatever element we want to remove. As such removing the last element is always of time complexity N.
 # TODO: Implement insertions, deletions and find functions.
 
 class node:
@@ -42,16 +42,31 @@ class linked_list:
         self.size -= 1
 
         return currentNode.value
+
+    def find_element(self, val):
+        current_node = self.bot_node
+        for i in range(self.size):
+            if(current_node.value == val):
+                return True
+            current_node = current_node.nextVal
+
+        return False
     
     # TODO
-    def find_element(self):
-        pass
-    
-    def insert_on_index(self,val,i):
-        pass
-    
+    def replace_on_index(self,val,i):
+        assert self.size > i, "Linked List Insertion: The index has to be within the list."
+        insertion_node = node(val)
+        index = 0
+        current_node = self.bot_node
+        while(index +1 < i):
+            current_node = current_node.nextVal
+            index += 1
+
+        insertion_node.nextVal = current_node.nextVal
+        current_node.nextVal = insertion_node
+
     def remove_on_index(self, i):
         pass
-    
+
     def remove_last(self):
         pass
