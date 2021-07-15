@@ -28,15 +28,16 @@ if(test_linked_list or run_all_tests):
     #lin_list.element_wise_print()
     lin_list.remove_first()
 
-
     lin_list.insertion("Hey")
     lin_list.insertion("baby")
     lin_list.insertion("girl")
-    lin_list.element_wise_print()
+    #lin_list.element_wise_print()
     print(lin_list.size)
     assert lin_list.size == 3
 
-
+    assert lin_list.find_element("girl")
+    lin_list.replace_on_index("beautiful", 1)
+    lin_list.element_wise_print()
 
 test_queue = False
 if(test_queue or run_all_tests):
@@ -48,7 +49,9 @@ if(test_queue or run_all_tests):
     print("Popping top element: ", q.pop())
     print("Now printing again: ")
     q.element_wise_print()
-    q.pop()
+    assert q.peek() == "Kenobi"
+    assert q.pop() == "Kenobi"
+
 
     q.push("hey")
     assert "hey" == q.pop()
@@ -88,19 +91,21 @@ if(test_graph or run_all_tests):
     g2.add_edge(B3,A3)
     assert g2.isTree(C3)
 
-test_bin_tree = False
+test_bin_tree = True
 if (test_bin_tree or run_all_tests):
     bin_tree = bin_tree_maker.binary_tree(5)
     bin_tree2 = bin_tree_maker.binary_tree(1)
     bin_tree.insert(3)
     bin_tree.insert(7)
     bin_tree.insert(9)
-    bin_tree.print()
+    #bin_tree.print()
     assert bin_tree.__contains__(3)
     assert bin_tree.__contains__(5)
     assert not bin_tree.__contains__(4)
+    assert bin_tree.length() == 4
     assert bin_tree.depth() == 3
     assert bin_tree2.depth() == 1
+
 
 test_trie = False
 if(test_trie or run_all_tests):
