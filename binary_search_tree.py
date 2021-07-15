@@ -94,6 +94,19 @@ class binary_tree():
 
         return level
 
+    def length(self):
+        r = self.right_child is None
+        l = self.left_child is None
+
+        if(l and r):
+            return 1
+        elif(l and not r):
+            return 1 + self.right_child.length()
+        elif(r and not l):
+            return 1 + self.left_child.length()
+        else:
+            return 1 + self.left_child.length() + self.right_child.length()
+
     def depth(self):
         return self.maximum_depth(1)
 
