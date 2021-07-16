@@ -25,5 +25,8 @@ class queue:
         except:
             print("You cannot pop from an empty queue!")
 
+    def peek(self):
+        return self.linkedList.top_node.value
+
     def element_wise_print(self):
         self.linkedList.element_wise_print()
