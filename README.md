@@ -1,6 +1,9 @@
 # Datastructures
 This is a repository where I implement various datastructures as a way of improving both my conceptual understanding of them while at the same time improving upon my Python skills. In this repo I implement among other datastructures the very common ones, Linked Lists, single and double linked, binary search trees, graphs, stacks, queues .. and more datastructures will come, no doubt! :) 
 
+## Practical usages:
+
+## My implementations:
 Here follows a list of my current implementations:
 
 - Linked List: A datastructure where a node is defined as holding a reference to another node as well as holding a data value. This datastructure is like a chain where each link connects to another link. Right now there is one thing that can be improved upon, that I realized, and that is the time of insertion in the list. As it is implemented right now we traverse the entire list to get to the last element but this can be improved upon simply by storing the last element like we do with the bottom element, and so insertion can be made in constant time.
