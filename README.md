@@ -2,9 +2,12 @@
 This is a repository where I implement various datastructures as a way of improving both my conceptual understanding of them while at the same time improving upon my Python skills. In this repo I implement among other datastructures the very common ones, Linked Lists, single and double linked, binary search trees, graphs, stacks, queues .. and more datastructures will come, no doubt! :) 
 
 ## Practical usages:
+- Pairing Socks: Naturally there are many more practical usages of datastructures than just for competitive programming, overall they can be used to facilitate programming and to make a problem much easier. One example is the Kattis problem pairing socks (https://open.kattis.com/problems/pairingsocks). The problem is to pair socks where you can put them on an auxiliary pile (or stack). Naturally if we have access to a stack this problem really is no problem at all, as we can simulate the affect of pairing socks.
+
+- Where is my internet: This too is a Kattis problem where we get houses from 1..N and internet connections from 1 .. M. The problem is then to discern which houses has internet connections given that house 1 already has and all connected to it (https://open.kattis.com/problems/wheresmyinternet). Naturally these problems can be modelled with a graph and if we have access to one we can easily implement a solution. A solution could be to model a graph and from the first house make a search, either a BFS or a DFS, or another search for that matter. Every visited node we can save and so we can return the circuit of nodes all connected to house 1. The implementation of a BFS or DFS is conceptually hard to think about, I think, but with datastructures such as Stacks (for DFS) and Queues(for BFS) the nature in which we save neighboring nodes will create a DFS or BFS respectively. 
 
 ## My implementations:
-Here follows a list of my current implementations:
+Here follows a list of my current implementations of datastructures:
 
 - Linked List: A datastructure where a node is defined as holding a reference to another node as well as holding a data value. This datastructure is like a chain where each link connects to another link. Right now there is one thing that can be improved upon, that I realized, and that is the time of insertion in the list. As it is implemented right now we traverse the entire list to get to the last element but this can be improved upon simply by storing the last element like we do with the bottom element, and so insertion can be made in constant time.
 
