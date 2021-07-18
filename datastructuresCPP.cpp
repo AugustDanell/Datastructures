@@ -12,7 +12,7 @@ const int MAX_SIZE = 200000;
 *  This is an adhoc implementation of the stack. It allocates an array of size 'MAX_SIZE', as is defined above. This array is an auxilary array
 *  in which data is stored. However, any data above the current size is considered 'trash data' and will be written over if insertion() is called.
 *  For example, if we have aux = [1,2...], size = 2. Now we call pop() -> aux = [1,2..], but size = 1, meaning that the 2 on index 1 is 'trashdata'.
-*  If we now call insertion(3), we get aux = [1,3...], and pop() --> returns 3, and in aux [1,3..], the 3 is 'trash data'.
+*  If we now call insertion(3), we get aux = [1,3...], and pop() --> returns 3, and in aux [1,3..], the 3 is now considered to be 'trash data'.
 */
 
 class stack{
