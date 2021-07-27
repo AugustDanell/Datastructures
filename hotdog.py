@@ -1,7 +1,9 @@
-# hotdog
-# The hotdog is a datastructure without any seemingly useful utility as I can see right now, just a funny implementation
-# of an idea. That idea is specifically to be a combination of a stack and a queue that is to have only the middle
-# element being eligble for popping.
+'''
+   hotdog
+   The hotdog is a datastructure without any seemingly useful utility as I can see right now, just a funny implementation
+   of an idea. That idea is specifically to be a combination of a stack and a queue that is to have only the middle
+   element being eligble for popping.
+'''
 
 class hotdog:
     def __init__(self):

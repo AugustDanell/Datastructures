@@ -1,11 +1,13 @@
-# graph
-# A graph is a datastructure with a network of nodes that are glued together by edges. A graph can be either directed or
-# undirected. Directed means that one can access node2 from an edge emerging from node1, to node2. An undirected graph
-# also makes it so that such a directed edge is symmetric, if one can go from node2 from node 1, one can also go back to
-# node 1, from node 2. A graph is undirected by default as per the default value false for the parameter 'directed' below.
-# One can also set this to be true when creating the graph, making it so the edges are non-symmetric. The datastructure
-# can bind together a network of nodes and make typical graph searches such as DFS and BFS implemented by queues and
-# stacks specifically. Moreover there is a function to see if the graph is of a tree structure.
+'''
+   graph
+   A graph is a datastructure with a network of nodes that are glued together by edges. A graph can be either directed or
+   undirected. Directed means that one can access node2 from an edge emerging from node1, to node2. An undirected graph
+   also makes it so that such a directed edge is symmetric, if one can go from node2 from node 1, one can also go back to
+   node 1, from node 2. A graph is undirected by default as per the default value false for the parameter 'directed' below.
+   One can also set this to be true when creating the graph, making it so the edges are non-symmetric. The datastructure
+   can bind together a network of nodes and make typical graph searches such as DFS and BFS implemented by queues and
+   stacks specifically. Moreover there is a function to see if the graph is of a tree structure.
+'''
 
 import stack
 import queue
@@ -44,18 +46,17 @@ class graph:
         else:
             self.adjacency_list[node1] += [node2]
 
-    # print_edges()
-    # prints the adjacency list of the graph:
     def print_edges(self):
         print("ADJACENCY LIST:")
         for entry in self.adjacency_list:
             l = [e.__str__() for e in self.adjacency_list[entry]]
             print("Entry " + entry.__str__() + ":", l)
-
-    # search()
-    # This is a generalized searching method, if one puts in structure = stack it will be a DFS search whereas if one
-    # inserts a structure = queue, this will instead be a BFS search. DFS and BFS down below both use this generalized
-    # search as a helper function, setting it up with DFS and BFS respectively.
+    '''
+       search()
+       This is a generalized searching method, if one puts in structure = stack it will be a DFS search whereas if one
+       inserts a structure = queue, this will instead be a BFS search. DFS and BFS down below both use this generalized
+       search as a helper function, setting it up with DFS and BFS respectively.
+    '''
 
     def search (self, node, level, structure):
         neighbors = structure
@@ -79,9 +80,11 @@ class graph:
         self.visited = {}
         self.search(node, level, queue.queue())
 
-    # isTree()
-    # A function that goes through the current adjacency list, looking for any cycles. Worth to note is that this is
-    # implemented with regard to an undirected graph
+    '''
+       isTree()
+       A function that goes through the current adjacency list, looking for any cycles. Worth to note is that this is
+       implemented with regard to an undirected graph.
+    '''
 
     def isTree(self, start):
         tree = True

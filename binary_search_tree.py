@@ -1,15 +1,17 @@
-# binary search tree
-# The binary search tree is a datastructure in which every node holds a value and can span from 0-2 nodes, that is have
-# one left and one right child, and it is to be organized as such that a value that is inserted for instance is inserted
-# to the right hand side of a current node if the new value is grater than that of the previous node. The problem is
-# that this can create unbalance. Etc, [1,2,3,4,5,6] would amount to a tree that is completely unbalanced, a right side
-# tree, and it would degenerate to a linked list.
+'''
+   binary search tree
+   The binary search tree is a datastructure in which every node holds a value and can span from 0-2 nodes, that is have
+   one left and one right child, and it is to be organized as such that a value that is inserted for instance is inserted
+   to the right hand side of a current node if the new value is grater than that of the previous node. The problem is
+   that this can create unbalance. Etc, [1,2,3,4,5,6] would amount to a tree that is completely unbalanced, a right side
+   tree, and it would degenerate to a linked list.
 
-# Operations are done by traversing down the nodes of the tree, and the amount of time it will take is entirely dependant
-# on the depth of the tree. That is why a balanced search tree naturally performs much better, a so called heap. In such a
-# structure we can insert, find and delete values in O(log n) time since the depth will be in logarithmic space, that is for
-# each node in existance there are two leaves, and so every row, every layer if you will, will have twice as much space as
-# the previous layer, 2^i, where i is the row, starting at row 0 which is the root.
+   Operations are done by traversing down the nodes of the tree, and the amount of time it will take is entirely dependant
+   on the depth of the tree. That is why a balanced search tree naturally performs much better, a so called heap. In such a
+   structure we can insert, find and delete values in O(log n) time since the depth will be in logarithmic space, that is for
+   each node in existance there are two leaves, and so every row, every layer if you will, will have twice as much space as
+   the previous layer, 2^i, where i is the row, starting at row 0 which is the root.
+'''
 
 import queue
 
@@ -34,11 +36,12 @@ class binary_tree():
                 self.right_child = binary_tree(data)
             else:
                 self.right_child.insert(data)
-
-    # contains
-    # Uses a similar logic as does insertion to traverse the tree from the root node, we use the tree structure knowing
-    # that left nodes are lesser than the current value and right nodes greater, and so we can traverse down the tree.
-    # Naturally, the time complexity remains the same that is O(N), but best case: theta(log N).
+    '''
+       contains
+       Uses a similar logic as does insertion to traverse the tree from the root node, we use the tree structure knowing
+       that left nodes are lesser than the current value and right nodes greater, and so we can traverse down the tree.
+       Naturally, the time complexity remains the same that is O(N), but best case: theta(log N).
+    '''
 
     def __contains__(self, item):
         if self is None:
@@ -58,12 +61,13 @@ class binary_tree():
                 return False
             else:
                 return self.left_child.__contains__(item)
-
-    # delete
-    # See Insertion/Contains to understand why it is O(N) and theta(log N).
-    # One conundrum that might exist in the deletion of a node is the deletion of a middle node, that is a node that is
-    # stringing together parts of the tree. The way that such a deletion can be made is to swap nodes down to a leaf and
-    # then to trim away that specific leaf.
+    '''
+       delete
+       See Insertion/Contains to understand why it is O(N) and theta(log N).
+       One conundrum that might exist in the deletion of a node is the deletion of a middle node, that is a node that is
+       stringing together parts of the tree. The way that such a deletion can be made is to swap nodes down to a leaf and
+       then to trim away that specific leaf.
+    '''
 
     def delete(self, item):
         if not self.__contains__(item):
@@ -71,11 +75,13 @@ class binary_tree():
 
         # TODO: Vad gör vi om exempelvis en "mittennod" tas bort
 
-    # depth() & maximum_depth()
-    # A function that traverses down the tree from the root down to a leaf and keeps a counter so as to know what level
-    # we are in. The function uses recursion, that is it returns the max recursively of a left/right way, and if there
-    # is only one way to traverse it does just that. depth(), defined below, is a function that starts the recursion that
-    # is maximum depth, which recurses down until ground floor has been reached.
+    '''
+       depth() & maximum_depth()
+       A function that traverses down the tree from the root down to a leaf and keeps a counter so as to know what level
+       we are in. The function uses recursion, that is it returns the max recursively of a left/right way, and if there
+       is only one way to traverse it does just that. depth(), defined below, is a function that starts the recursion that
+       is maximum depth, which recurses down until ground floor has been reached.
+    '''
 
     def maximum_depth(self, level):
         if self is None:
@@ -114,14 +120,16 @@ class binary_tree():
     def compare(self, bin_tree):
         pass
 
-    # print
-    # A recursive function that much like the depth-recursive call uses recursion to travel down nodes, printing their
-    # value and their level, right_level and left_level, respectively. These levels start at (0,0), which signifies
-    # origo, the point of origin. For each traversal in the right the second of these two values increases, and so
-    # the overall depth, one can say, is left_level + right_level, and since this is commutative there might be a tree
-    # where two nodes have the same level, if for instane you traverse left, and then right, this node has the same left
-    # and right level specifically as does the traversal right to left, even though its not the same node.
-    # The traversal order, and so printing order, is depth first starting from the right side, moving left.
+    '''
+       print
+       A recursive function that much like the depth-recursive call uses recursion to travel down nodes, printing their
+       value and their level, right_level and left_level, respectively. These levels start at (0,0), which signifies
+       origo, the point of origin. For each traversal in the right the second of these two values increases, and so
+       the overall depth, one can say, is left_level + right_level, and since this is commutative there might be a tree
+       where two nodes have the same level, if for instane you traverse left, and then right, this node has the same left
+       and right level specifically as does the traversal right to left, even though its not the same node.
+       The traversal order, and so printing order, is depth first starting from the right side, moving left.
+    '''
 
     def print(self, left_level = 0, right_level = 0, q = queue.queue()):
         if self is None:

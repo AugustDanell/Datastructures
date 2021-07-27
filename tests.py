@@ -20,6 +20,7 @@ if(test_stack or run_all_tests):
 
 test_linked_list = False
 if(test_linked_list or run_all_tests):
+    print("TEST SUITE: LINKED LIST")
     lin_list = linked_list.linked_list()
     lin_list.insertion("Hello")
     lin_list.insertion("There")
@@ -32,18 +33,28 @@ if(test_linked_list or run_all_tests):
     lin_list.insertion("baby")
     lin_list.insertion("girl")
     #lin_list.element_wise_print()
-    print(lin_list.size)
-    assert lin_list.size == 3
+    assert lin_list.size == len(lin_list)
 
     assert lin_list.find_element("girl")
     lin_list.replace_on_index("beautiful", 1)
+
+    lin_list.remove_on_index(1)
+    assert lin_list.find_element("Hey")
+    assert lin_list.find_element("girl")
+    assert len(lin_list) == 2
+    lin_list.remove_last()
+    assert len(lin_list) == 1
+    assert lin_list.find_element("Hey")
     lin_list.element_wise_print()
+
 
 test_queue = False
 if(test_queue or run_all_tests):
+    print("TEST SUITE: QUEUES")
     q = queue.queue()
     q.push("General")
     q.push("Kenobi")
+    assert len(q) == 2
 
     q.element_wise_print()
     print("Popping top element: ", q.pop())
@@ -59,6 +70,7 @@ if(test_queue or run_all_tests):
 
 test_graph = False
 if(test_graph or run_all_tests):
+    print("TEST SUITE: GRAPHS")
     # Testing the following graph g2, with startnode C3.
     #      1 2  3  4  5
     #    | - -  -  -  -
@@ -91,8 +103,9 @@ if(test_graph or run_all_tests):
     g2.add_edge(B3,A3)
     assert g2.isTree(C3)
 
-test_bin_tree = True
+test_bin_tree = False
 if (test_bin_tree or run_all_tests):
+    print("TEST SUITE: BINARY SEARCH TREE")
     bin_tree = bin_tree_maker.binary_tree(5)
     bin_tree2 = bin_tree_maker.binary_tree(1)
     bin_tree.insert(3)
@@ -107,8 +120,9 @@ if (test_bin_tree or run_all_tests):
     assert bin_tree2.depth() == 1
 
 
-test_trie = False
+test_trie = True
 if(test_trie or run_all_tests):
+    print("TEST SUITE: TRIE")
     t = trie.trie_node()
     t.insert_word("hi")
     t.insert_word("hit")
@@ -118,15 +132,18 @@ if(test_trie or run_all_tests):
     assert t.does_word_exist("hitmarker")
 
     contact_list =trie.trie_node()
-    list_of_contacts = ["Daniel", "Tobias", "Dennis", "Simon", "Augustus", "Elenor", "Lucasovic", "Andrej", "Sebastianus", "Johnhannesian"]
+    list_of_contacts = ["Daniel", "Tobias", "Deniz", "Saimon", "Augustus", "Elenora", "Lucasovic", "Andrej", "Sebastianus", "Johnhannesian"]
     for c in list_of_contacts:
         contact_list.insert_word(c)
+
+    assert len(contact_list) == len(list_of_contacts)
 
     for a in list_of_contacts:
         assert contact_list.does_word_exist(a)
 
 test_hotdog = False
 if(test_hotdog or run_all_tests):
+    print("TEST SUITE: HOTDOG")
     hottie = hotdog.hotdog()
     hottie.insert(1)
     hottie.insert(2)
@@ -140,3 +157,7 @@ if(test_hotdog or run_all_tests):
     assert pop_element in [1,4]
     pop_element = hottie.pop()
     assert pop_element in [1,4]
+
+test_priority_queue = False
+if(test_priority_queue):
+    print("TEST SUITE: PRIORITY QUEUES")
