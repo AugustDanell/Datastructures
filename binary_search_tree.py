@@ -141,3 +141,5 @@ class binary_tree():
 
             if not self.left_child is None:
                 self.left_child.print(left_level + 1, right_level)
+                  
+    # TODO: BFS & DFS Traversals. 
