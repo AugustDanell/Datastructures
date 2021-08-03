@@ -141,5 +141,26 @@ class binary_tree():
 
             if not self.left_child is None:
                 self.left_child.print(left_level + 1, right_level)
-                  
-    # TODO: BFS & DFS Traversals. 
+
+
+
+    def depth_first_traversal(self):
+        if(self.left_child is not None):
+            self.left_child.depth_first_traversal()
+
+        if(self.right_child is not None):
+            self.right_child.depth_first_traversal()
+
+    def breath_first_traversal(self, stored_recursions = []):
+        print(self.data)
+
+        if(self.left_child is not None):
+            stored_recursions.append(self.left_child)
+
+        if(self.right_child is not None):
+            stored_recursions.append(self.right_child)
+
+        if(not stored_recursions == []):
+            element = stored_recursions[0]
+            stored_recursions.remove(element)
+            element.breath_first_traversal(stored_recursions)
