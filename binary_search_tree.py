@@ -142,7 +142,10 @@ class binary_tree():
             if not self.left_child is None:
                 self.left_child.print(left_level + 1, right_level)
 
-
+'''
+   depth_first_traversal
+   Simply traverses down the depth of the tree first, that is, we are traversing down until we come to a leaf with no children.
+'''
 
     def depth_first_traversal(self):
         if(self.left_child is not None):
@@ -150,7 +153,11 @@ class binary_tree():
 
         if(self.right_child is not None):
             self.right_child.depth_first_traversal()
-
+'''
+   breath_first_traversal
+   Breath first is when we are traversing down the tree "one generation" at a time, if one so will. Both of these traversal functions can in practice
+   take in some working function, maybe print (like the member function print above), or do something else. 
+'''
     def breath_first_traversal(self, stored_recursions = []):
         print(self.data)
 
